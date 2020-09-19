@@ -1,0 +1,5 @@
+[
+	nombreclase:personaje
+	Atributo:string|nombre
+	Atributo:int|poder
+]
