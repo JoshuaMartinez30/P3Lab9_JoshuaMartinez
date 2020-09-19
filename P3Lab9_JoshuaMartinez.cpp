@@ -27,10 +27,6 @@ void read_and_write(){
     vector<string> nombre_variables;
     int auxiliar_name=0, cont1, cont3;
     for (int i = 0; i < texto2.size(); i++){
-        if (texto2.at(i)==' '){
-            continue;
-        }
-        
        if (auxiliar_name==0){
            if (texto2.at(i)==':'){
                cont3=1;
@@ -75,7 +71,7 @@ void read_and_write(){
             string nombre_archivo="", nombre_mayus;
             nombre_archivo+= nombre+".h";
             nombre_mayus = nombre;
-            archivo.open("personaje.h",ios::out);
+            archivo.open(nombre_archivo,ios::out);
             for (int i = 0; i < nombre_mayus.length(); i++) {
                 nombre_mayus[i] = toupper(nombre_mayus[i]);
             }
@@ -114,12 +110,13 @@ void read_and_write(){
             archivo<<"            ~"<<nombre<<"();"<<endl;
             archivo<<"};"<<endl;
             archivo<<"#endif"<<endl;
+            archivo.close();
 
             ofstream archivo2;
             string nombre_archivo2="";
-            nombre_archivo+= nombre+".cpp";
+            nombre_archivo2+= nombre+".cpp";
             nombre_mayus = nombre;
-            archivo2.open("personaje.cpp",ios::out);
+            archivo2.open(nombre_archivo2,ios::out);
             string clase, killme="";
             clase = "\""+nombre+".h"+"\"";
 
@@ -151,8 +148,9 @@ void read_and_write(){
                 archivo2<<"return "<<nombre_variables[contador]<<";"<<endl<<"}"<<endl;
                 contador++; 
             }
-
+            
             archivo2<<nombre<<"::"<<"~"<<nombre<<"(){"<<endl<<"}";
+            archivo2.close();
             //clase1(nombre,variables,nombre_variables);
             //clase2(nombre,variables,nombre_variables);
             nombre="";

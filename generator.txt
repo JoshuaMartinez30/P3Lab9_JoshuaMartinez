@@ -3,3 +3,11 @@
 	Atributo:string|nombre
 	Atributo:int|poder
 ]
+...
+[
+	nombreclase:hola
+	Atributo:int|porducto
+	Atributo:int|precio
+]
+
+
